@@ -3,10 +3,13 @@ import './App.css'
 
 class ListAllBookshelves extends React.Component {
     render() {
+
       const { books } = this.props
-      let currentlyReadingShelf = books.filter((bookShelf) => bookShelf.shelf === 'currentlyReading')
-      let wantToReadShelf = books.filter((bookShelf) => bookShelf.shelf === 'wantToRead')
-      let readShelf = books.filter((bookShelf) => bookShelf.shelf === 'read')
+
+      let currentlyReadingShelf = books.filter((book) => book.shelf === 'currentlyReading')
+      let wantToReadShelf = books.filter((book) => book.shelf === 'wantToRead')
+      let readShelf = books.filter((book) => book.shelf === 'read')
+
       return (
           <div className="list-books">
             <div className="list-books-title">
