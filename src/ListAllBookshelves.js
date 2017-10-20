@@ -1,7 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './App.css'
+import Shelf from './Shelf'
 
 class ListAllBookshelves extends React.Component {
+<<<<<<< HEAD
     render() {
 
       const { books } = this.props
@@ -102,9 +105,39 @@ class ListAllBookshelves extends React.Component {
           <div className="open-search">
             <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
           </div>
+=======
+
+  static propTypes = {
+    books: PropTypes.array.isRequired
+  }
+
+  render() {
+
+    const { books } = this.props
+
+    return (
+      <div className="list-books">
+        <div className="list-books-title">
+          <h1>MyReads</h1>
         </div>
-      )
-    }
+        <div className="list-books-content">
+          <Shelf
+            shelf={books.filter((book) => book.shelf === 'currentlyReading')}
+            title='Currently Reading'
+          />
+          <Shelf
+            shelf={books.filter((book) => book.shelf === 'wantToRead')}
+            title='Want to Read'
+          />
+          <Shelf
+            shelf={books.filter((book) => book.shelf === 'read')}
+            title='Read'
+          />
+>>>>>>> 5e053274afbae53e2300188ac5825b17d6b47c02
+        </div>
+      </div>
+    )
+  }
 }
 
 export default ListAllBookshelves
