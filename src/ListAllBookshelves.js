@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './App.css'
 import Shelf from './Shelf'
@@ -31,6 +32,9 @@ class ListAllBookshelves extends React.Component {
             shelf={books.filter((book) => book.shelf === 'read')}
             title='Read'
           />
+        </div>
+        <div className="open-search">
+          <Link to='/add-a-book'>Add a book</Link>
         </div>
       </div>
     )
