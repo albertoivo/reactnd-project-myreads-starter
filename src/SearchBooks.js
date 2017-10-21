@@ -1,23 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
+//import PropTypes from 'prop-types'
+//import escapeRegExp from 'escape-string-regexp'
+//import sortBy from 'sort-by'
 import Shelf from './Shelf'
 import * as BooksAPI from './BooksAPI'
 
 class SearchBooks extends React.Component {
 
-  static propTypes = {
-    books: PropTypes.array.isRequired
-  }
-
   state = {
-    query: ''
+    query: '',
+    showingBooks: []
   }
 
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
+    if (query) {
+      // const match = new  RegExp(escapeRegExp(query), 'i')
+      // showingBooks = books.filter((book) => match.test(book.title) || match.test(book.authors))
+      BooksAPI.search(query, 20).then((searchedBooks) => {
+        this.setState({showingBooks: searchedBooks})
+      })
+    } else {
+      this.setState({showingBooks: []})
+    }
   }
 
   clearQuery = () => {
@@ -25,18 +31,6 @@ class SearchBooks extends React.Component {
   }
 
   render() {
-
-    const { books } = this.props
-    const { query } = this.state
-
-    let showingBooks
-    if (query) {
-      const match = new  RegExp(escapeRegExp(query), 'i')
-      showingBooks = books.filter((book) => match.test(book.title) || match.test(book.authors))
-      //showingBooks = BooksAPI.search(query, 20).then()
-    } else {
-      showingBooks = books
-    }
 
     return (
       <div className="search-books">
@@ -54,16 +48,17 @@ class SearchBooks extends React.Component {
             <input
               type="text"
               placeholder="Search by title or author"
-              value={query}
+              value={this.state.query}
               onChange={(event) => this.updateQuery(event.target.value)}
             />
           </div>
         </div>
         <div className="search-books-results">
-            <Shelf
-              shelf={showingBooks}
-              title={showingBooks.length}
-            />
+          {console.log(this.state.showingBooks)}
+          <Shelf
+            title='Search Results'
+            books={this.state.showingBooks !== undefined ? this.state.showingBooks : []}
+          />
         </div>
       </div>
     )

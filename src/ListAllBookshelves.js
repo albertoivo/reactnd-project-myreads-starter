@@ -21,20 +21,20 @@ class ListAllBookshelves extends React.Component {
         </div>
         <div className="list-books-content">
           <Shelf
-            shelf={books.filter((book) => book.shelf === 'currentlyReading')}
             title='Currently Reading'
+            books={books.filter((book) => book.shelf === 'currentlyReading')}
           />
           <Shelf
-            shelf={books.filter((book) => book.shelf === 'wantToRead')}
             title='Want to Read'
+            books={books.filter((book) => book.shelf === 'wantToRead')}
           />
           <Shelf
-            shelf={books.filter((book) => book.shelf === 'read')}
             title='Read'
+            books={books.filter((book) => book.shelf === 'read')}
           />
         </div>
         <div className="open-search">
-          <Link to='/add-a-book'>Add a book</Link>
+          <Link to='/search'>Search</Link>
         </div>
       </div>
     )
