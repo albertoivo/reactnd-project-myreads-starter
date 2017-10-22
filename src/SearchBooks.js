@@ -1,8 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-//import PropTypes from 'prop-types'
-//import escapeRegExp from 'escape-string-regexp'
-//import sortBy from 'sort-by'
 import Shelf from './Shelf'
 import * as BooksAPI from './BooksAPI'
 
@@ -13,24 +10,21 @@ class SearchBooks extends React.Component {
     showingBooks: []
   }
 
-  updateQuery = (query) => {
-    this.setState({ query: query.trim() })
+  search = (query) => {
+    this.setState({ query: query })
     if (query) {
-      // const match = new  RegExp(escapeRegExp(query), 'i')
-      // showingBooks = books.filter((book) => match.test(book.title) || match.test(book.authors))
       BooksAPI.search(query, 20).then((searchedBooks) => {
         this.setState({showingBooks: searchedBooks})
-      })
+      }, this.setState({showingBooks: []}))
     } else {
+      this.setState({query: ''})
       this.setState({showingBooks: []})
     }
   }
 
-  clearQuery = () => {
-    this.setState({ query: '' })
-  }
-
   render() {
+
+    const { query, showingBooks } = this.state
 
     return (
       <div className="search-books">
@@ -48,16 +42,15 @@ class SearchBooks extends React.Component {
             <input
               type="text"
               placeholder="Search by title or author"
-              value={this.state.query}
-              onChange={(event) => this.updateQuery(event.target.value)}
+              value={query}
+              onChange={(event) => this.search(event.target.value)}
             />
           </div>
         </div>
         <div className="search-books-results">
-          {console.log(this.state.showingBooks)}
           <Shelf
-            title='Search Results'
-            books={this.state.showingBooks !== undefined ? this.state.showingBooks : []}
+            title={showingBooks.length > 0 ? 'Search Results' : ''}
+            books={showingBooks instanceof Array ? showingBooks : []}
           />
         </div>
       </div>

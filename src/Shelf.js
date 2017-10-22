@@ -9,16 +9,11 @@ class Shelf extends React.Component {
     books: PropTypes.array.isRequired
   }
 
-  state = {
-    meuLivros: []
-  }
-
   update(book, shelf) {
     BooksAPI.update(book, shelf)
   }
 
   render() {
-
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">{this.props.title}</h2>
