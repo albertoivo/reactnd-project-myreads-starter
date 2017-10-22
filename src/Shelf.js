@@ -9,27 +9,38 @@ class Shelf extends React.Component {
     books: PropTypes.array.isRequired
   }
 
-  update(book, shelf) {
-    BooksAPI.update(book, shelf)
+  state = {
+    myBooks: []
+  }
+
+  update = (book, shelf) => {
+    BooksAPI.update(book, shelf).then((books) => {
+      this.state = { myBooks: books }
+    })
+  }
+
+  componentWillReceiveProps(props) {
+    this.state = { myBooks: props.books }
   }
 
   render() {
+    const { myBooks } = this.state
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">{this.props.title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            {this.props.books.map((book) => (
+            {(myBooks.error || myBooks === undefined) || myBooks.map((book) => (
               <li key={book.id}>
                 <div className="book">
                   <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks !== undefined ? book.imageLinks.smallThumbnail : ''})` }}></div>
                     <div className="book-shelf-changer">
                       <select
                         value={book.shelf || 'none'}
                         onChange={ (event) => this.update(book, event.target.value) }
                       >
-                        <option value="none" disabled>Move to...</option>
+                        <option value="" disabled>Move to...</option>
                         <option value="currentlyReading">Currently Reading</option>
                         <option value="wantToRead">Want to Read</option>
                         <option value="read">Read</option>
@@ -38,7 +49,7 @@ class Shelf extends React.Component {
                     </div>
                   </div>
                   <div className="book-title">{book.title}</div>
-                  <div className="book-authors">{book.authors}</div>
+                  <div className="book-authors">{book.authors === undefined || book.authors.join(', ')}</div>
                 </div>
               </li>
             ))}

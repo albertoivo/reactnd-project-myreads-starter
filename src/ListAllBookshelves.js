@@ -1,19 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import './App.css'
 import Shelf from './Shelf'
+import * as BooksAPI from './BooksAPI'
 
 class ListAllBookshelves extends React.Component {
 
-  static propTypes = {
-    books: PropTypes.array.isRequired
+  state = {
+    myBooks: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ myBooks: books })
+    })
   }
 
   render() {
-
-    const { books } = this.props
-
+    const { myBooks } = this.state
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -22,15 +26,15 @@ class ListAllBookshelves extends React.Component {
         <div className="list-books-content">
           <Shelf
             title='Currently Reading'
-            books={books.filter((book) => book.shelf === 'currentlyReading')}
+            books={myBooks.filter((book) => book.shelf === 'currentlyReading')}
           />
           <Shelf
             title='Want to Read'
-            books={books.filter((book) => book.shelf === 'wantToRead')}
+            books={myBooks.filter((book) => book.shelf === 'wantToRead')}
           />
           <Shelf
             title='Read'
-            books={books.filter((book) => book.shelf === 'read')}
+            books={myBooks.filter((book) => book.shelf === 'read')}
           />
         </div>
         <div className="open-search">

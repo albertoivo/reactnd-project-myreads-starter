@@ -10,15 +10,19 @@ class SearchBooks extends React.Component {
     showingBooks: []
   }
 
+  clearQuery() {
+    this.setState({query: ''})
+    this.setState({showingBooks: []})
+  }
+
   search = (query) => {
     this.setState({ query: query })
     if (query) {
       BooksAPI.search(query, 20).then((searchedBooks) => {
-        this.setState({showingBooks: searchedBooks})
-      }, this.setState({showingBooks: []}))
+        this.setState({ showingBooks: searchedBooks })
+      })
     } else {
-      this.setState({query: ''})
-      this.setState({showingBooks: []})
+      this.clearQuery()
     }
   }
 
@@ -48,10 +52,15 @@ class SearchBooks extends React.Component {
           </div>
         </div>
         <div className="search-books-results">
+        {showingBooks !== undefined && showingBooks instanceof Array ?
           <Shelf
-            title={showingBooks.length > 0 ? 'Search Results' : ''}
-            books={showingBooks instanceof Array ? showingBooks : []}
+            title={showingBooks.length > 0 ? 'Search Results' : query ? 'Searching...' : ''}
+            books={showingBooks}
           />
+        : <Shelf
+            title={'Nothing\'s found. Sorry!'}
+            books={[]}
+          />}
         </div>
       </div>
     )
