@@ -53,10 +53,12 @@ class SearchBooks extends React.Component {
         {showingBooks !== undefined && showingBooks instanceof Array ?
           <Shelf
             title={showingBooks.length > 0 ? 'Search Results' : query ? 'Searching...' : ''}
+            update={this.props.update}
             books={showingBooks}
           />
         : <Shelf
             title={'Nothing\'s found. Sorry!'}
+            update={this.props.update}
             books={[]}
           />}
         </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as BooksAPI from './BooksAPI'
 
 class Shelf extends React.Component {
 
@@ -13,17 +12,7 @@ class Shelf extends React.Component {
     myBooks: []
   }
 
-  update = (book, shelf) => {
-    BooksAPI.update(book, shelf).then((newBooks, rej) => {
-      console.log('chamou o update')
-      // this.setState({ myBooks: newBooks })
-      this.state = { myBooks: newBooks }
-      console.log('vai sair do update')
-    })
-  }
-
   componentWillReceiveProps(props) {
-    console.log('chamou o componentWillReceiveProps')
     this.setState({ myBooks: props.books })
   }
 
@@ -34,7 +23,7 @@ class Shelf extends React.Component {
         <h2 className="bookshelf-title">{this.props.title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            {(myBooks.error || myBooks === undefined) || myBooks.map((book) => (
+            {(!myBooks.error || myBooks) && myBooks.map((book) => (
               <li key={book.id}>
                 <div className="book">
                   <div className="book-top">
@@ -42,7 +31,7 @@ class Shelf extends React.Component {
                     <div className="book-shelf-changer">
                       <select
                         value={book.shelf || 'none'}
-                        onChange={ (event) => this.update(book, event.target.value) }
+                        onChange={ (event) => this.props.update(book, event.target.value) }
                       >
                         <option value="" disabled>Move to...</option>
                         <option value="currentlyReading">Currently Reading</option>

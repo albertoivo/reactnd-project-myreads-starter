@@ -11,7 +11,6 @@ class ListAllBookshelves extends React.Component {
   }
 
   componentDidMount() {
-    console.log('chamou o didMount do ListAll')
     BooksAPI.getAll().then((books) => {
       this.setState({ myBooks: books })
     })
@@ -25,16 +24,19 @@ class ListAllBookshelves extends React.Component {
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content">
-          <Shelf
+          <Shelf 
             title='Currently Reading'
+            update={this.props.update}
             books={myBooks.filter((book) => book.shelf === 'currentlyReading')}
           />
           <Shelf
             title='Want to Read'
+            update={this.props.update}
             books={myBooks.filter((book) => book.shelf === 'wantToRead')}
           />
           <Shelf
             title='Read'
+            update={this.props.update}
             books={myBooks.filter((book) => book.shelf === 'read')}
           />
         </div>
