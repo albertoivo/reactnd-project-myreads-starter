@@ -11,6 +11,7 @@ class ListAllBookshelves extends React.Component {
   }
 
   componentDidMount() {
+    console.log('chamou o didMount do ListAll')
     BooksAPI.getAll().then((books) => {
       this.setState({ myBooks: books })
     })

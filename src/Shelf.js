@@ -14,13 +14,17 @@ class Shelf extends React.Component {
   }
 
   update = (book, shelf) => {
-    BooksAPI.update(book, shelf).then((books) => {
-      this.state = { myBooks: books }
+    BooksAPI.update(book, shelf).then((newBooks, rej) => {
+      console.log('chamou o update')
+      // this.setState({ myBooks: newBooks })
+      this.state = { myBooks: newBooks }
+      console.log('vai sair do update')
     })
   }
 
   componentWillReceiveProps(props) {
-    this.state = { myBooks: props.books }
+    console.log('chamou o componentWillReceiveProps')
+    this.setState({ myBooks: props.books })
   }
 
   render() {

@@ -11,8 +11,8 @@ class SearchBooks extends React.Component {
   }
 
   clearQuery() {
-    this.setState({query: ''})
-    this.setState({showingBooks: []})
+    this.setState({ query: '' })
+    this.setState({ showingBooks: [] })
   }
 
   search = (query) => {
@@ -27,9 +27,7 @@ class SearchBooks extends React.Component {
   }
 
   render() {
-
     const { query, showingBooks } = this.state
-
     return (
       <div className="search-books">
         <div className="search-books-bar">
