@@ -32,7 +32,7 @@ class BooksApp extends React.Component {
       <div className="app">
         <Route exact path='/' render={() => (
           <ListAllBookshelves
-            myBooks={ this.state.myBooks }
+            myBooks={this.state.myBooks}
             update={this.update.bind(this)} />
         )} />
         <Route path='/search' render={() => (
