@@ -7,6 +7,10 @@ import * as BooksAPI from './BooksAPI'
 
 class BooksApp extends React.Component {
 
+  state = {
+    myBooks: []
+  }
+
   update = (book, shelf) => {
     BooksAPI.update(book, shelf).then((newBooks) => {
       BooksAPI.getAll().then((books) => {
@@ -15,15 +19,22 @@ class BooksApp extends React.Component {
     })
   }
 
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ myBooks: books })
+    })
+  }
+
   render() {
     return (
       <div className="app">
         <Route exact path='/' render={() => (
           <ListAllBookshelves
+            myBooks={ this.state.myBooks }
             update={this.update.bind(this)} />
         )} />
         <Route path='/search' render={() => (
-          <SearchBooks 
+          <SearchBooks
             update={this.update.bind(this)} />
         )}
         />

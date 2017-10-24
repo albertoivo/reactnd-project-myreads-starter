@@ -1,23 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './App.css'
 import Shelf from './Shelf'
-import * as BooksAPI from './BooksAPI'
+import './App.css'
 
 class ListAllBookshelves extends React.Component {
-
-  state = {
-    myBooks: []
-  }
-
-  componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.setState({ myBooks: books })
-    })
-  }
-
   render() {
-    const { myBooks } = this.state
+    const { myBooks } = this.props
     return (
       <div className="list-books">
         <div className="list-books-title">
