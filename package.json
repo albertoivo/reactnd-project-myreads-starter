@@ -1,4 +1,7 @@
 {
+  "name": "my-reads",
+  "author": "Enter your name, email, and/or website",
+  "version": "0.0.1",
   "dependencies": {
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
