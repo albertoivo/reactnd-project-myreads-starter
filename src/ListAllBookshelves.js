@@ -9,7 +9,7 @@ const ListAllBookshelves = ({ myBooks, update }) => {
         <h1>MyReads</h1>
       </div>
       <div className="list-books-content">
-        <Shelf 
+        <Shelf
           title='Currently Reading'
           update={update}
           books={myBooks.filter((book) => book.shelf === 'currentlyReading')}
