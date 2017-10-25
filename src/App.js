@@ -1,10 +1,10 @@
-import React from "react"
-import { Route } from "react-router-dom"
-import "./App.css"
-import ListAllBookshelves from "./ListAllBookshelves"
-import SearchBooks from "./SearchBooks"
-import * as BooksAPI from "./BooksAPI"
-import AlertContainer from "react-alert"
+import React from 'react'
+import { Route } from 'react-router-dom'
+import './App.css'
+import ListAllBookshelves from './ListAllBookshelves'
+import SearchBooks from './SearchBooks'
+import * as BooksAPI from './BooksAPI'
+import AlertContainer from 'react-alert'
 
 class BooksApp extends React.Component {
   state = {
@@ -30,29 +30,35 @@ class BooksApp extends React.Component {
 
   alertOptions = {
     offset: 14,
-    position: "top right",
-    theme: "dark",
-    time: 1000,
-    transition: "scale"
+    position: 'top right',
+    theme: 'dark',
+    time: 100,
+    transition: 'scale'
   }
 
   showAlert = (bookTitle, newShelf) => {
     switch (newShelf) {
-      case "currentlyReading":
-        newShelf = "Currently Reading"
+      case 'currentlyReading':
+        newShelf = 'Currently Reading'
         break
-      case "wantToRead":
-        newShelf = "Want to Read"
+      case 'wantToRead':
+        newShelf = 'Want to Read'
         break
-      case "read":
-        newShelf = "Read"
+      case 'read':
+        newShelf = 'Read'
         break
       default:
-        newShelf = "None"
+        newShelf = 'None'
     }
-    this.msg.show(`${bookTitle} is now on the shelf ${newShelf}`, {
+    let msgAlert
+    if (newShelf === 'None') {
+      msgAlert = `${bookTitle} is off the shelves`
+    } else {
+      msgAlert = `${bookTitle} is new on the shelf ${newShelf}`
+    }
+    this.msg.show(msgAlert, {
       time: 5000,
-      type: "success"
+      type: 'success'
     })
   }
 
