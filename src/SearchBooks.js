@@ -1,25 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Shelf from './Shelf'
-import * as BooksAPI from './BooksAPI'
-import { Debounce } from 'react-throttle'
+import React from "react"
+import { Link } from "react-router-dom"
+import Shelf from "./Shelf"
+import * as BooksAPI from "./BooksAPI"
+import { Debounce } from "react-throttle"
 
 class SearchBooks extends React.Component {
-
   state = {
-    query: '',
+    query: "",
     showingBooks: []
   }
 
   clearQuery() {
-    this.setState({ query: '' })
+    this.setState({ query: "" })
     this.setState({ showingBooks: [] })
   }
 
-  search = (query) => {
+  search = query => {
     this.setState({ query: query })
     if (query) {
-      BooksAPI.search(query, 20).then((searchedBooks) => {
+      BooksAPI.search(query, 20).then(searchedBooks => {
         this.setState({ showingBooks: searchedBooks })
       })
     } else {
@@ -32,7 +31,9 @@ class SearchBooks extends React.Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link to='/' className="close-search">Close</Link>
+          <Link to="/" className="close-search">
+            Close
+          </Link>
           <div className="search-books-input-wrapper">
             {/*
               NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -46,23 +47,29 @@ class SearchBooks extends React.Component {
               <input
                 type="text"
                 placeholder="Search by title or author"
-                onChange={(event) => this.search(event.target.value)}
+                onChange={event => this.search(event.target.value)}
               />
             </Debounce>
           </div>
         </div>
         <div className="search-books-results">
-        {showingBooks !== undefined && showingBooks instanceof Array ?
-          <Shelf
-            title={showingBooks.length > 0 ? 'Search Results' : query ? 'Searching...' : ''}
-            update={this.props.update}
-            books={showingBooks}
-          />
-        : <Shelf
-            title={'Nothing\'s found. Sorry!'}
-            update={this.props.update}
-            books={[]}
-          />}
+          {showingBooks !== undefined && showingBooks instanceof Array ? (
+            <Shelf
+              title={
+                showingBooks.length > 0
+                  ? "Search Results"
+                  : query ? "Searching..." : ""
+              }
+              update={this.props.update}
+              books={showingBooks}
+            />
+          ) : (
+            <Shelf
+              title={"Nothing's found. Sorry!"}
+              update={this.props.update}
+              books={[]}
+            />
+          )}
         </div>
       </div>
     )
