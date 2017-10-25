@@ -1,17 +1,17 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import Shelf from "./Shelf"
-import * as BooksAPI from "./BooksAPI"
-import { Debounce } from "react-throttle"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Shelf from './Shelf'
+import * as BooksAPI from './BooksAPI'
+import { Debounce } from 'react-throttle'
 
 class SearchBooks extends React.Component {
   state = {
-    query: "",
+    query: '',
     showingBooks: []
   }
 
   clearQuery() {
-    this.setState({ query: "" })
+    this.setState({ query: '' })
     this.setState({ showingBooks: [] })
   }
 
@@ -57,8 +57,8 @@ class SearchBooks extends React.Component {
             <Shelf
               title={
                 showingBooks.length > 0
-                  ? "Search Results"
-                  : query ? "Searching..." : ""
+                  ? 'Search Results'
+                  : query ? 'Searching...' : ''
               }
               update={this.props.update}
               books={showingBooks}
