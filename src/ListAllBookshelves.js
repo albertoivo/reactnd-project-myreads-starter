@@ -1,6 +1,6 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import Shelf from "./Shelf"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Shelf from './Shelf'
 
 const ListAllBookshelves = ({ myBooks, update }) => {
   return (
@@ -12,17 +12,17 @@ const ListAllBookshelves = ({ myBooks, update }) => {
         <Shelf
           title="Currently Reading"
           update={update}
-          books={myBooks.filter(book => book.shelf === "currentlyReading")}
+          books={myBooks.filter(book => book.shelf === 'currentlyReading')}
         />
         <Shelf
           title="Want to Read"
           update={update}
-          books={myBooks.filter(book => book.shelf === "wantToRead")}
+          books={myBooks.filter(book => book.shelf === 'wantToRead')}
         />
         <Shelf
           title="Read"
           update={update}
-          books={myBooks.filter(book => book.shelf === "read")}
+          books={myBooks.filter(book => book.shelf === 'read')}
         />
       </div>
       <div className="open-search">
