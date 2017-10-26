@@ -1,6 +1,6 @@
 {
   "name": "my-reads",
-  "author": "Enter your name, email, and/or website",
+  "author": "Alberto Ivo Vieira - albertoivo@gmail.com",
   "version": "0.0.1",
   "dependencies": {
     "prop-types": "^15.5.8",
