@@ -54,7 +54,7 @@ class BooksApp extends React.Component {
     if (newShelf === 'None') {
       msgAlert = `${bookTitle} is off the shelves`
     } else {
-      msgAlert = `${bookTitle} is new on the shelf ${newShelf}`
+      msgAlert = `${bookTitle} is now on the shelf ${newShelf}`
     }
     this.msg.show(msgAlert, {
       time: 5000,
