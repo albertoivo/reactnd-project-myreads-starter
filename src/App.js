@@ -78,7 +78,12 @@ class BooksApp extends React.Component {
         />
         <Route
           path="/search"
-          render={() => <SearchBooks update={this.update.bind(this)} />}
+          render={() => (
+            <SearchBooks
+              books={this.state.myBooks}
+              update={this.update.bind(this)}
+            />
+          )}
         />
       </div>
     )
