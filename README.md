@@ -88,6 +88,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+This repository was the starter code for Udacity students. Now it's a complete project for organizing your reads.
+
+Also Tests are string recommended here.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Bug Reports
+
+One limitation is the BooksAPI.js because can only search a fixed set of cached results [SEARCH_TERMS.md](SEARCH_TERMS.md).
+
+Please file bug reports using GitHub [issues] (https://github.com/albertoivo/reactnd-project-myreads-starter/issues). Thank you!
+
+## Pull Requests
+
+If you would like to contribute to this project, feel free. Clean, well-tested, well-documented code is appreciated. Thanks!
