@@ -7,8 +7,11 @@ import * as BooksAPI from './BooksAPI'
 import AlertContainer from 'react-alert'
 
 class BooksApp extends React.Component {
-  state = {
-    myBooks: []
+  constructor(props) {
+    super(props)
+    this.state = {
+      myBooks: []
+    }
   }
 
   componentDidMount() {
@@ -28,7 +31,7 @@ class BooksApp extends React.Component {
       this.setState({
         myBooks: this.state.myBooks.filter(b => b.id !== book.id).concat(book)
       })
-      BooksAPI.get(book.id).then(b => this.showAlert(b.title, b.shelf))
+      this.showAlert(book.title, shelf)
     })
   }
 

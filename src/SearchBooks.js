@@ -19,7 +19,7 @@ class SearchBooks extends React.Component {
     this.setState({ query: query })
     if (query) {
       BooksAPI.search(query, 20).then(searchedBooks => {
-        if (!searchedBooks.error) {
+        if (searchedBooks) {
           searchedBooks.map(book => {
             let bookOnShelf = this.props.books.find(b => b.id === book.id)
             if (bookOnShelf) {
