@@ -1,6 +1,6 @@
 # MyReads Project
 
-This is a React Project to organizing your virtual books (only cover and name). Here you can organize the books by shelf (Currently reading, Want to read and Read). Is't very simple and intuitive to use.
+This is a React Project to organizing your virtual books (only cover and name for now). Here you can organize the books by shelf (Currently reading, Want to read and Read). Is't very simple and intuitive to use. Have fun!
 
 ## TL;DR
 
@@ -21,21 +21,23 @@ To get started developing right away:
 └── src
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── Book.js # A component with all book information.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
     │   ├── arrow-back.svg
     │   └── arrow-drop-down.svg
     ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    ├── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    ├── ListAllBookShelves.js # A component that contains all shelves in the app.
+    ├── SearchBook.js # A component for saerch booking using the BooksAPI.js.
+    ├── ListAllBookShelves.js # A component that contains all shelves in the app.
+    └── Shelf.js # A component that contains the Book Component and a title. Can be used in ListAllBookshelves.js
 ```
-
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
 
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+The backend server that we to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend:
 
 * [`getAll`](#getall)
 * [`update`](#update)
@@ -61,7 +63,7 @@ update(book, shelf)
 ```
 
 * book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
+* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
 * Returns a Promise which resolves to a JSON object containing the response data of the POST request
 
 ### `search`
@@ -88,7 +90,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This repository was the starter code for Udacity students. Now it's a complete project for organizing your reads.
 
-Also Tests are string recommended here.
+Also Tests are strong recommended here.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 
