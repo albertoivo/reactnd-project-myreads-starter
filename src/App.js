@@ -6,6 +6,13 @@ import SearchBooks from './SearchBooks'
 import * as BooksAPI from './BooksAPI'
 import AlertContainer from 'react-alert'
 
+const shelfs = {
+  currentlyReading: 'Currently Reading',
+  wantToRead: 'Want to Read',
+  read: 'Read',
+  none: 'None'
+}
+
 class BooksApp extends React.Component {
   constructor(props) {
     super(props)
@@ -40,25 +47,12 @@ class BooksApp extends React.Component {
   }
 
   showAlert = (bookTitle, newShelf) => {
-    switch (newShelf) {
-      case 'currentlyReading':
-        newShelf = 'Currently Reading'
-        break
-      case 'wantToRead':
-        newShelf = 'Want to Read'
-        break
-      case 'read':
-        newShelf = 'Read'
-        break
-      default:
-        newShelf = 'None'
-    }
-    let msgAlert
-    if (newShelf === 'None') {
-      msgAlert = `${bookTitle} is off the shelves`
-    } else {
-      msgAlert = `${bookTitle} is now on the shelf ${newShelf}`
-    }
+    const nextShelf = shelfs[newShelf]
+    const msgAlert =
+      nextShelf === 'None'
+        ? `${bookTitle} is off the shelves`
+        : `${bookTitle} is now on the shelf ${nextShelf}`
+
     this.msg.show(msgAlert, {
       time: 5000,
       type: 'success'
@@ -75,7 +69,7 @@ class BooksApp extends React.Component {
           render={() => (
             <ListAllBookshelves
               myBooks={this.state.myBooks}
-              update={this.update.bind(this)}
+              update={this.update}
             />
           )}
         />
@@ -84,7 +78,7 @@ class BooksApp extends React.Component {
           render={() => (
             <SearchBooks
               books={this.state.myBooks}
-              update={this.update.bind(this)}
+              update={this.update}
             />
           )}
         />
