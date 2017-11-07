@@ -12,3 +12,7 @@ ReactDOM.render(
   document.getElementById('root')
 )
 registerServiceWorker()
+/* the application itself reloads, but not the page. */
+//if (module.hot) {
+//  module.hot.accept();
+//}
