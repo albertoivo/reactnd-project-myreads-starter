@@ -7,15 +7,21 @@ const Book = ({ book, update }) => {
         <div
           className="book-cover"
           style={{
-            width: 128, height: 193,
-            backgroundImage: `url(${book.imageLinks.smallThumbnail})`
+            width: 128,
+            height: 193,
+            backgroundImage: `url(${(book.imageLinks &&
+              book.imageLinks.thumbnail) ||
+              ''})`
           }}
         />
         <div className="book-shelf-changer">
           <select
             value={book.shelf || 'none'}
-            onChange={event => update(book, event.target.value)}>
-            <option value="" disabled>Move to...</option>
+            onChange={event => update(book, event.target.value)}
+          >
+            <option value="" disabled>
+              Move to...
+            </option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>
             <option value="read">Read</option>
@@ -25,7 +31,7 @@ const Book = ({ book, update }) => {
       </div>
       <div className="book-title">{book.title}</div>
       <div className="book-authors">
-        {book.authors === undefined || book.authors.join(', ')}
+        {book.authors && book.authors.join(', ')}
       </div>
     </div>
   )
