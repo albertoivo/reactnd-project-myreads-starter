@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
 import ListAllBookshelves from './ListAllBookshelves'
@@ -7,7 +7,7 @@ import * as BooksAPI from './BooksAPI'
 import AlertContainer from 'react-alert'
 import { shelves } from './helper'
 
-class BooksApp extends React.Component {
+class BooksApp extends Component {
   constructor(props) {
     super(props)
     this.state = {

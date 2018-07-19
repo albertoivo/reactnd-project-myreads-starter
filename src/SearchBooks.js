@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Shelf from './Shelf'
 import * as BooksAPI from './BooksAPI'
 import { Debounce } from 'react-throttle'
 import { SyncLoader } from 'react-spinners'
 
-class SearchBooks extends React.Component {
+class SearchBooks extends Component {
   state = {
     query: '',
     searchedBooks: [],
