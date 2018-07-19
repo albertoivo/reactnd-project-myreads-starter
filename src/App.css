@@ -62,7 +62,7 @@ body,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #2e7d32;
+  background: #2b303b;
   background-image: url('./icons/add.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -163,7 +163,7 @@ body,
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #60ac5d;
+  background: #36D7B7;
   background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -197,4 +197,32 @@ body,
   top: 30%;
   left: 50%;
   transform: translate(-50%, 50%);
+}
+
+
+/* Header styles */
+header {
+  width: 100%;
+  background: linear-gradient(90deg, #36D7B7, #2b303b);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  height: 40px !important;
+  top: 0;
+}
+
+.navbar h1 {
+  font-size: 20px;
+  height: 40px;
+}
+
+.logo {
+  line-height: 40px;
+  margin: 0px auto;
+  letter-spacing: 5px;
+  font-weight: 300;
+  text-transform: uppercase;
 }

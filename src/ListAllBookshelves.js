@@ -6,9 +6,9 @@ import { shelves } from './helper'
 const ListAllBookshelves = ({ myBooks, update }) => {
   return (
     <div className="list-books">
-      <div className="list-books-title">
-        <h1>MyReads</h1>
-      </div>
+      <header id="header" class="navbar">
+        <h1 class="logo">My Reads</h1>
+      </header>
       <div className="list-books-content">
         {shelves.map(shelf => {
           return (
