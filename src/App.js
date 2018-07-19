@@ -61,7 +61,10 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <AlertContainer ref={a => (this.msg = a)} {...this.alertOptions} />
+        <AlertContainer
+          ref={msgAlert => (this.msg = msgAlert)}
+          {...this.alertOptions}
+        />
         <Route
           exact
           path="/"
