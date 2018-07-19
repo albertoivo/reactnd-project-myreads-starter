@@ -5,13 +5,7 @@ import ListAllBookshelves from './ListAllBookshelves'
 import SearchBooks from './SearchBooks'
 import * as BooksAPI from './BooksAPI'
 import AlertContainer from 'react-alert'
-
-const shelfs = {
-  currentlyReading: 'Currently Reading',
-  wantToRead: 'Want to Read',
-  read: 'Read',
-  none: 'None'
-}
+import { shelves } from './helper'
 
 class BooksApp extends React.Component {
   constructor(props) {
@@ -46,9 +40,10 @@ class BooksApp extends React.Component {
   }
 
   showAlert = (bookTitle, newShelf) => {
-    const nextShelf = shelfs[newShelf]
+    const shelf = shelves.find(shelf => shelf.shelf === newShelf)
+    const nextShelf = shelf ? shelf.title : 'none'
     const msgAlert =
-      nextShelf === 'None'
+      nextShelf === 'none'
         ? `${bookTitle} is off the shelves`
         : `${bookTitle} is now on the shelf ${nextShelf}`
 
