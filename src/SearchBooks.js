@@ -3,32 +3,33 @@ import { Link } from 'react-router-dom'
 import Shelf from './Shelf'
 import * as BooksAPI from './BooksAPI'
 import { Debounce } from 'react-throttle'
+import { SyncLoader } from 'react-spinners'
 
 class SearchBooks extends React.Component {
   state = {
     query: '',
-    showingBooks: []
+    searchedBooks: [],
+    loading: false
   }
 
   clearQuery() {
-    this.setState({ query: '' })
-    this.setState({ showingBooks: [] })
+    this.setState({ query: '', searchedBooks: [], loading: false })
   }
 
   search = query => {
-    this.setState({ query: query })
+    this.setState({ query: query, loading: true })
     if (query) {
       BooksAPI.search(query, 20).then(searchedBooks => {
         if (!searchedBooks.error) {
           searchedBooks.map(book => {
-            let bookOnShelf = this.props.books.find(b => b.id === book.id)
+            const bookOnShelf = this.props.books.find(b => b.id === book.id)
             if (bookOnShelf) {
               book.shelf = bookOnShelf.shelf
             }
             return book
           })
         }
-        this.setState({ showingBooks: searchedBooks })
+        this.setState({ searchedBooks, loading: false })
       })
     } else {
       this.clearQuery()
@@ -36,7 +37,7 @@ class SearchBooks extends React.Component {
   }
 
   render() {
-    const { query, showingBooks } = this.state
+    const { searchedBooks, loading } = this.state
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -54,22 +55,17 @@ class SearchBooks extends React.Component {
           </div>
         </div>
         <div className="search-books-results">
-          {showingBooks !== undefined && showingBooks instanceof Array ? (
+          <div className="loading">
+            <SyncLoader loading={loading && searchedBooks.length === 0} />
+          </div>
+          {searchedBooks && searchedBooks instanceof Array ? (
             <Shelf
-              title={
-                showingBooks.length > 0
-                  ? 'Search Results'
-                  : query ? 'Searching...' : ''
-              }
+              title={searchedBooks.length > 0 && 'Search Results'}
               update={this.props.update}
-              books={showingBooks}
+              books={searchedBooks}
             />
           ) : (
-            <Shelf
-              title={"Nothing's found. Sorry!"}
-              update={this.props.update}
-              books={[]}
-            />
+            <Shelf title={"Nothing's found. Sorry!"} />
           )}
         </div>
       </div>

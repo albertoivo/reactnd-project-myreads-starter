@@ -4,3 +4,4 @@ yarn.lock
 .DS_Store
 .vscode/last.sql
 .vscode/temp.sql
+yarn-error.log
