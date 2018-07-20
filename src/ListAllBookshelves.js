@@ -7,7 +7,7 @@ const ListAllBookshelves = ({ myBooks, update }) => {
   return (
     <div className="list-books">
       <header id="header" class="navbar">
-        <h1 class="logo">My Reads</h1>
+        <h1 className="logo">My Reads</h1>
       </header>
       <div className="list-books-content">
         {shelves.map(shelf => {
