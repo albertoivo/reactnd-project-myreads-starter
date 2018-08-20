@@ -1,4 +1,5 @@
 import React from 'react'
+import { shelves } from './helper'
 
 const Book = ({ book, update }) => {
   return (
@@ -22,9 +23,7 @@ const Book = ({ book, update }) => {
             <option value="" disabled>
               Move to...
             </option>
-            <option value="currentlyReading">Currently Reading</option>
-            <option value="wantToRead">Want to Read</option>
-            <option value="read">Read</option>
+            {shelves.map(s => (<option key={s.shelf} value={s.shelf}>{s.title}</option>))}
             <option value="none">None</option>
           </select>
         </div>
