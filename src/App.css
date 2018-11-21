@@ -13,7 +13,6 @@ body,
   background: white;
 }
 
-
 /* main page */
 
 .list-books-title {
@@ -62,6 +61,7 @@ body,
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  border-color: white;
   background: #2b303b;
   background-image: url('./icons/add.svg');
   background-repeat: no-repeat;
@@ -210,6 +210,17 @@ body,
   transform: translate(-50%, 50%);
 }
 
+footer {
+  padding: 10px;
+  text-align: center;
+  color: #fff !important;
+  background: linear-gradient(90deg, #2b303b, #36D7B7);
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
 
 /* Header styles */
 header {
@@ -221,7 +232,7 @@ header {
 }
 
 .navbar {
-  height: 100px !important;
+  height: 156px !important;
   top: 0;
 }
 
@@ -230,10 +241,13 @@ header {
   height: 40px;
 }
 
-.logo {
+header a {
   line-height: 40px;
   margin: 0px auto;
   letter-spacing: 5px;
   font-weight: 300;
   text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-size: 36px
 }
