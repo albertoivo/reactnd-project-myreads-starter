@@ -3,7 +3,7 @@
   "author": "Alberto Ivo Vieira - albertoivo@gmail.com",
   "version": "0.0.1",
   "dependencies": {
-    "prop-types": "^15.5.8",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-alert": "^2.4.0",
     "react-dom": "^16.4.1",
