@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import Header from "./Header"
+import Footer from "./Footer"
 import notfound from "./icons/not-found.jpg"
 
 const NotFound = () => (
@@ -16,6 +17,7 @@ const NotFound = () => (
         <img className="not-found" src={notfound} alt="not-found" />
       </div>
     </div>
+    <Footer />
   </div>
 )
 

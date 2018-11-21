@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Shelf from './Shelf'
 import Header from './Header'
+import Footer from './Footer'
 import { shelves } from './helper'
 import PropTypes from 'prop-types'
 
@@ -24,6 +25,7 @@ const ListAllBookshelves = ({ myBooks, update }) => {
       <div className="open-search">
         <Link to="/search">Search</Link>
       </div>
+      <Footer />
     </div>
   )
 }
