@@ -19,7 +19,7 @@ class SearchBooks extends Component {
   search = query => {
     this.setState({ query: query, loading: true })
     if (query) {
-      BooksAPI.search(query, 20).then(searchedBooks => {
+      BooksAPI.search(query).then(searchedBooks => {
         if (!searchedBooks.error) {
           searchedBooks.map(book => {
             const bookOnShelf = this.props.books.find(b => b.id === book.id)
