@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Shelf from './Shelf'
+import Header from './Header'
 import { shelves } from './helper'
+import PropTypes from 'prop-types'
 
 const ListAllBookshelves = ({ myBooks, update }) => {
   return (
-    <div className="list-books">
-      <header id="header" className="navbar">
-        <h1 className="logo">My Reads</h1>
-      </header>
+    <div>
+      <Header />
       <div className="list-books-content">
         {shelves.map(shelf => {
           return (
@@ -26,6 +26,11 @@ const ListAllBookshelves = ({ myBooks, update }) => {
       </div>
     </div>
   )
+}
+
+ListAllBookshelves.propTypes = {
+  myBooks: PropTypes.array.isRequired,
+  update: PropTypes.func.isRequired
 }
 
 export default ListAllBookshelves
