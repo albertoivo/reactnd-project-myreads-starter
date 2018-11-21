@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css'
 import ListAllBookshelves from './ListAllBookshelves'
 import SearchBooks from './SearchBooks'
+import NotFound from './NotFound'
 import * as BooksAPI from './BooksAPI'
 import AlertContainer from 'react-alert'
 import { shelves } from './helper'
@@ -60,22 +61,17 @@ class BooksApp extends Component {
           ref={msgAlert => (this.msg = msgAlert)}
           {...this.alertOptions}
         />
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <ListAllBookshelves
-              myBooks={this.state.myBooks}
-              update={this.update}
-            />
-          )}
-        />
-        <Route
-          path="/search"
-          render={() => (
-            <SearchBooks books={this.state.myBooks} update={this.update} />
-          )}
-        />
+        <Switch>
+          <Route exact path="/" render={() => (
+              <ListAllBookshelves myBooks={this.state.myBooks} update={this.update} />
+            )}
+          />
+          <Route path="/search" render={() => (
+              <SearchBooks books={this.state.myBooks} update={this.update} />
+            )}
+          />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     )
   }
