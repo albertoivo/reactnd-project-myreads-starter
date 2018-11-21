@@ -1,105 +1,57 @@
 # MyReads Project
 
+![Certified By Ivo](https://img.shields.io/badge/Certified%20By-Ivo-blue.svg)
+[![Build Status](https://semaphoreapp.com/api/v1/projects/d4cca506-99be-44d2-b19e-176f36ec8cf1/128505/shields_badge.svg)](https://semaphoreapp.com/boennemann/badges)
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+
+
 This is a React Project to organizing your virtual books (only cover and name for now). Here you can organize the books by shelf (Currently reading, Want to read and Read). Is't very simple and intuitive to use. Have fun!
 
-## TL;DR
 
-To get started developing right away:
+## Table of contents
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+-   [Prerequisites](#prerequisites)
+-   [Quick start](#quick-start)
+-   [Limitations](#limitations)
+-   [Developed with](#developed-with)
+-   [Contributing](#contributing)
+-   [Author](#author)
+-   [License](#license)
 
-## What You're Getting
-```bash
-├── CONTRIBUTING.md
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── Book.js # A component with all book information.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    ├── index.js # You should not need to modify this file. It is used for DOM rendering only.
-    ├── ListAllBookShelves.js # A component that contains all shelves in the app.
-    ├── SearchBook.js # A component for saerch booking using the BooksAPI.js.
-    ├── ListAllBookShelves.js # A component that contains all shelves in the app.
-    └── Shelf.js # A component that contains the Book Component and a title. Can be used in ListAllBookshelves.js
-```
+## Prerequisites
 
-## Backend Server
+1.  Node
+2.  NPM
 
-The backend server that we to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend:
+## Quick start
 
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
+1. Clone it: `https://github.com/albertoivo/my-reads-reactnd.git`
+1. Enter the directory: `cd my-reads-reactnd`
+1. Install the dependencies: `npm install`
+1. Start it: `npm start`
 
-### `getAll`
+It will open your browser at `http://localhost:3000`
 
-Method Signature:
+## Limitation
 
-```js
-getAll()
-```
+One limitation is the BooksAPI.js because can only search a fixed set of cached results [SEARCH_TERMS.md](./SEARCH_TERMS.md).
 
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
+## Developed with
 
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf)
-```
-
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query, maxResults)
-```
-
-* query: `<String>`
-* maxResults: `<Integer>` Due to the nature of the backend server, search results are capped at 20, even if this is set higher.
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
-
-## Important
-The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
-
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+* [React JS](https://reactjs.org/)
 
 ## Contributing
 
-This repository was the starter code for Udacity students. Now it's a complete project for organizing your reads.
+We welcome contributions to this project!
 
-Also Tests are strong recommended here.
+-   ⇄ Pull requests and ★ Stars are always welcome.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Author
 
-## Bug Reports
+* **Alberto Ivo Vieira** - [Github](https://github.com/albertoivo) | [LinkedIn](https://www.linkedin.com/in/alberto-ivo-vieira/)
 
-One limitation is the BooksAPI.js because can only search a fixed set of cached results [SEARCH_TERMS.md](SEARCH_TERMS.md).
+## License
 
-Please file bug reports using GitHub [issues] (https://github.com/albertoivo/reactnd-project-myreads-starter/issues). Thank you!
-
-## Pull Requests
-
-If you would like to contribute to this project, feel free. Clean, well-tested, well-documented code is appreciated. Thanks!
+There is no license. Use it at will. You can even call it your own.
