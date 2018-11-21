@@ -71,6 +71,17 @@ body,
   font-size: 0;
 }
 
+.not-found {
+  height: 50vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}
 
 /* search page */
 
@@ -210,7 +221,7 @@ header {
 }
 
 .navbar {
-  height: 40px !important;
+  height: 100px !important;
   top: 0;
 }
 
