@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { shelves } from './helper'
 import StarRatingComponent from 'react-star-rating-component'
 
@@ -38,6 +39,16 @@ const Book = ({ book, update }) => {
       </div>
     </div>
   )
+}
+
+Book.propTypes = {
+  book: PropTypes.shape({
+    previewLink: PropTypes.string,
+    imageLinks: PropTypes.object,
+    averageRating: PropTypes.number,
+    authors: PropTypes.array
+  }).isRequired,
+  update: PropTypes.func.isRequired
 }
 
 export default Book
