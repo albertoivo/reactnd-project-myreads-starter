@@ -17,7 +17,7 @@ body,
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: #169C81;
   text-align: center;
 }
 
@@ -69,18 +69,6 @@ body,
   background-size: 28px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-size: 0;
-}
-
-.not-found {
-  height: 50vh;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.center {
-  margin: auto;
-  width: 50%;
 }
 
 /* search page */
@@ -174,7 +162,7 @@ body,
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #36D7B7;
+  background: #169C81;
   background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -189,10 +177,11 @@ body,
   cursor: pointer;
 }
 
-
 /* book cover */
 
 .book-cover {
+  width: 128px;
+  height: 193px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background: #eee;
 }
@@ -203,11 +192,30 @@ body,
   font-size: 0.8em;
 }
 
-.loading {
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, 50%);
+/* Header / Footer styles */
+
+.navbar {
+  height: 156px !important;
+  top: 0;
+}
+
+header {
+  width: 100%;
+  background: linear-gradient(90deg, #36D7B7, #2b303b);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+header a {
+  line-height: 40px;
+  margin: 0px auto;
+  letter-spacing: 5px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-size: 36px
 }
 
 footer {
@@ -223,32 +231,21 @@ footer a {
   margin: 0px 5px 0px 5px
 }
 
-/* Header styles */
-header {
-  width: 100%;
-  background: linear-gradient(90deg, #36D7B7, #2b303b);
-  color: #fff;
-  display: flex;
-  align-items: center;
+.loading {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
 
-.navbar {
-  height: 156px !important;
-  top: 0;
+.not-found {
+  height: 50vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.navbar h1 {
-  font-size: 20px;
-  height: 40px;
-}
-
-header a {
-  line-height: 40px;
-  margin: 0px auto;
-  letter-spacing: 5px;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: white;
-  font-size: 36px
+.center {
+  margin: auto;
+  width: 50%;
 }

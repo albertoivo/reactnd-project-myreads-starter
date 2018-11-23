@@ -9,11 +9,8 @@ const Book = ({ book, update }) => {
     <div className="book">
       <div className="book-top">
         <a href={book.previewLink} target="_blank" rel="noopener noreferrer">
-          <div className="book-cover"
-            style={{
-              width: 128, height: 193,
-              backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : thumb})`
-            }}
+          <img className="book-cover" alt="loading cover..."
+            src={book.imageLinks ? book.imageLinks.thumbnail : thumb}
           />
         </a>
         <div className="book-shelf-changer">
