@@ -1,16 +1,16 @@
 {
   "main.css": "albertoivo.github.io/my-reads-reactnd/static/css/main.6328e37c.chunk.css",
-  "main.js": "albertoivo.github.io/my-reads-reactnd/static/js/main.10450bd8.chunk.js",
-  "main.js.map": "albertoivo.github.io/my-reads-reactnd/static/js/main.10450bd8.chunk.js.map",
+  "main.js": "albertoivo.github.io/my-reads-reactnd/static/js/main.34f3b955.chunk.js",
+  "main.js.map": "albertoivo.github.io/my-reads-reactnd/static/js/main.34f3b955.chunk.js.map",
   "static/js/1.2a164a4a.chunk.js": "albertoivo.github.io/my-reads-reactnd/static/js/1.2a164a4a.chunk.js",
   "static/js/1.2a164a4a.chunk.js.map": "albertoivo.github.io/my-reads-reactnd/static/js/1.2a164a4a.chunk.js.map",
   "runtime~main.js": "albertoivo.github.io/my-reads-reactnd/static/js/runtime~main.364586e8.js",
   "runtime~main.js.map": "albertoivo.github.io/my-reads-reactnd/static/js/runtime~main.364586e8.js.map",
   "static/media/book-cover.jpg": "albertoivo.github.io/my-reads-reactnd/static/media/book-cover.c4d111ec.jpg",
-  "static/media/App.css": "albertoivo.github.io/my-reads-reactnd/static/media/arrow-drop-down.78c6f53b.svg",
+  "static/media/App.css": "albertoivo.github.io/my-reads-reactnd/static/media/arrow-back.3687aa98.svg",
   "static/media/not-found.jpg": "albertoivo.github.io/my-reads-reactnd/static/media/not-found.536686b6.jpg",
   "static/css/main.6328e37c.chunk.css.map": "albertoivo.github.io/my-reads-reactnd/static/css/main.6328e37c.chunk.css.map",
   "index.html": "albertoivo.github.io/my-reads-reactnd/index.html",
-  "precache-manifest.bcde89c5d39dfa0b8e2062ff5b2fc690.js": "albertoivo.github.io/my-reads-reactnd/precache-manifest.bcde89c5d39dfa0b8e2062ff5b2fc690.js",
+  "precache-manifest.2d88796deb6da79771fafdcb40a64dd1.js": "albertoivo.github.io/my-reads-reactnd/precache-manifest.2d88796deb6da79771fafdcb40a64dd1.js",
   "service-worker.js": "albertoivo.github.io/my-reads-reactnd/service-worker.js"
 }
