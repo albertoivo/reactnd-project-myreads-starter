@@ -24,19 +24,19 @@ self.__precacheManifest = [
     "url": "albertoivo.github.io/my-reads-reactnd/static/js/runtime~main.364586e8.js"
   },
   {
-    "revision": "34f3b9551e01bb2fed4a",
-    "url": "albertoivo.github.io/my-reads-reactnd/static/js/main.34f3b955.chunk.js"
+    "revision": "b8e7acc8c4539a3027eb",
+    "url": "albertoivo.github.io/my-reads-reactnd/static/js/main.b8e7acc8.chunk.js"
   },
   {
     "revision": "2a164a4a9ef8965ca38e",
     "url": "albertoivo.github.io/my-reads-reactnd/static/js/1.2a164a4a.chunk.js"
   },
   {
-    "revision": "34f3b9551e01bb2fed4a",
+    "revision": "b8e7acc8c4539a3027eb",
     "url": "albertoivo.github.io/my-reads-reactnd/static/css/main.6328e37c.chunk.css"
   },
   {
-    "revision": "8752ee3d99ee7f6127898c7d6934eaa0",
+    "revision": "01d57e78b6b49144b08053596e0a6bb8",
     "url": "albertoivo.github.io/my-reads-reactnd/index.html"
   }
 ];
