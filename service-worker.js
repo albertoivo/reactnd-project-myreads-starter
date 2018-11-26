@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "albertoivo.github.io/my-reads-reactnd/precache-manifest.af2a6839fa758a874071f2d5b17d33df.js"
+  "/my-reads-reactnd/precache-manifest.a7751925b31ece1e2a4de90ce305710d.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("albertoivo.github.io/my-reads-reactnd/index.html", {
+workbox.routing.registerNavigationRoute("/my-reads-reactnd/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
