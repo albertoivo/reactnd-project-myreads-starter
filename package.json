@@ -3,6 +3,18 @@
   "author": "Alberto Ivo Vieira",
   "email": "albertoivo@gmail.com",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/albertoivo/my-reads-reactnd"
+  },
+  "contributors": [
+    {
+      "name": "Alberto Ivo Vieira",
+      "url": "albertoivo.github.io",
+      "email": "albertoivo@gmail.com"
+    }
+  ],
+  "license": "SEE LICENSE FILE",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
