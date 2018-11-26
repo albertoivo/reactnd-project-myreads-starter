@@ -54,4 +54,4 @@ We welcome contributions to this project!
 
 ## License
 
-There is no license. Use it at will. You can even call it your own.
+See [LICENSE FILE](./LICENSE).
