@@ -10,17 +10,12 @@ const Book = ({ book, update }) => {
       <div className="book-top">
         <a href={book.previewLink} target="_blank" rel="noopener noreferrer">
           <img className="book-cover" alt="loading cover..."
-            src={book.imageLinks ? book.imageLinks.thumbnail : thumb}
-          />
+            src={book.imageLinks ? book.imageLinks.thumbnail : thumb} />
         </a>
         <div className="book-shelf-changer">
-          <select
-            value={book.shelf || 'none'}
-            onChange={event => update(book, event.target.value)}
-          >
-            <option value="" disabled>
-              Move to...
-            </option>
+          <select value={book.shelf || 'none'}
+            onChange={event => update(book, event.target.value)}>
+            <option value="" disabled>Move to...</option>
             {shelves.map(s => (<option key={s.shelf} value={s.shelf}>{s.title}</option>))}
             <option value="none">None</option>
           </select>
