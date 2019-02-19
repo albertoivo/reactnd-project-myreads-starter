@@ -6,7 +6,7 @@ import Footer from './Footer'
 import { shelves } from './helper'
 import PropTypes from 'prop-types'
 
-const ListAllBookshelves = ({ myBooks, update }) => {
+const ListAllBookshelves = React.memo(function ListAllBookshelves({ myBooks, update }) {
   return (
     <div>
       <Header />
@@ -28,7 +28,7 @@ const ListAllBookshelves = ({ myBooks, update }) => {
       <Footer />
     </div>
   )
-}
+})
 
 ListAllBookshelves.propTypes = {
   myBooks: PropTypes.array.isRequired,

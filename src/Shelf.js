@@ -21,8 +21,8 @@ const Shelf = React.memo(function Shelf({ title, books = [], update }) {
 
 Shelf.propTypes = {
   title: PropTypes.string.isRequired,
-  books: PropTypes.array.isRequired,
-  update: PropTypes.func.isRequired
+  books: PropTypes.array,
+  update: PropTypes.func
 }
 
 export default Shelf
