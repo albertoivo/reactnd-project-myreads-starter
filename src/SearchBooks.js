@@ -18,7 +18,7 @@ class SearchBooks extends Component {
   }
 
   search = query => {
-    this.setState({query: query, isLoading: true})
+    this.setState({query, isLoading: true})
     if (query) {
       BooksAPI.search(query).then(searchedBooks => {
         if (!searchedBooks.error) {
@@ -58,7 +58,7 @@ class SearchBooks extends Component {
         <div className="search-books-results">
           {isLoading ?
             <div className="loading">
-              <SyncLoader loading={isLoading}/>
+              <SyncLoader loading={true}/>
             </div>
             :
             searchedBooks && searchedBooks instanceof Array ?
@@ -68,7 +68,7 @@ class SearchBooks extends Component {
                 books={searchedBooks}
               />
               :
-              <Shelf title={"Nothing's found. Sorry!"}/>
+              <Shelf title={"Nothing's found. Sorry!"} />
           }
         </div>
       </div>
