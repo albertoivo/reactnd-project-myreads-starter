@@ -10,15 +10,15 @@ class SearchBooks extends Component {
   state = {
     query: '',
     searchedBooks: [],
-    loading: false
+    isLoading: false
   }
 
   clearQuery() {
-    this.setState({ query: '', searchedBooks: [], loading: false })
+    this.setState({query: '', searchedBooks: [], isLoading: false})
   }
 
   search = query => {
-    this.setState({ query: query, loading: true })
+    this.setState({query: query, isLoading: true})
     if (query) {
       BooksAPI.search(query).then(searchedBooks => {
         if (!searchedBooks.error) {
@@ -30,7 +30,7 @@ class SearchBooks extends Component {
             return book
           })
         }
-        this.setState({ searchedBooks, loading: false })
+        this.setState({searchedBooks, isLoading: false})
       })
     } else {
       this.clearQuery()
@@ -38,7 +38,7 @@ class SearchBooks extends Component {
   }
 
   render() {
-    const { searchedBooks, loading } = this.state
+    const {searchedBooks, isLoading} = this.state
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -56,18 +56,20 @@ class SearchBooks extends Component {
           </div>
         </div>
         <div className="search-books-results">
-          <div className="loading">
-            <SyncLoader loading={loading && searchedBooks.length === 0} />
-          </div>
-          {searchedBooks && searchedBooks instanceof Array ? (
-            <Shelf
-              title={searchedBooks.length > 0 && 'Search Results'}
-              update={this.props.update}
-              books={searchedBooks}
-            />
-          ) : (
-            <Shelf title={"Nothing's found. Sorry!"} />
-          )}
+          {isLoading ?
+            <div className="loading">
+              <SyncLoader loading={isLoading}/>
+            </div>
+            :
+            searchedBooks && searchedBooks instanceof Array ?
+              <Shelf
+                title={'Search Results (' + searchedBooks.length + ')'}
+                update={this.props.update}
+                books={searchedBooks}
+              />
+              :
+              <Shelf title={"Nothing's found. Sorry!"}/>
+          }
         </div>
       </div>
     )
