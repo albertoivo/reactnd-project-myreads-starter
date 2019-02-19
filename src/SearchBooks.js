@@ -63,7 +63,7 @@ class SearchBooks extends Component {
             :
             searchedBooks && searchedBooks instanceof Array ?
               <Shelf
-                title={'Search Results (' + searchedBooks.length + ')'}
+                title={`Search Results ( ${searchedBooks.length} )`}
                 update={this.props.update}
                 books={searchedBooks}
               />
