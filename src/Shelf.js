@@ -2,7 +2,7 @@ import React from 'react'
 import Book from './Book'
 import PropTypes from 'prop-types'
 
-const Shelf = ({ title, books = [], update }) => {
+const Shelf = React.memo(function Shelf({ title, books = [], update }) {
   return (
     <div className="bookshelf">
       <h2 className="bookshelf-title">{title}</h2>
@@ -17,7 +17,7 @@ const Shelf = ({ title, books = [], update }) => {
       </div>
     </div>
   )
-}
+})
 
 Shelf.propTypes = {
   title: PropTypes.string.isRequired,

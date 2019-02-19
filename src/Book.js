@@ -4,7 +4,7 @@ import { shelves } from './helper'
 import StarRatingComponent from 'react-star-rating-component'
 import thumb from './icons/book-cover.jpg'
 
-const Book = ({ book, update }) => {
+const Book = React.memo(function Book({ book, update }) {
   return (
     <div className="book">
       <div className="book-top">
@@ -28,7 +28,7 @@ const Book = ({ book, update }) => {
       </div>
     </div>
   )
-}
+})
 
 Book.propTypes = {
   book: PropTypes.shape({
