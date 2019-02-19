@@ -19,13 +19,13 @@
   ],
   "license": "SEE LICENSE FILE",
   "dependencies": {
-    "prop-types": "^15.6.2",
+    "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-alert": "^2.4.0",
     "react-dom": "^16.8.2",
-    "react-icons": "^3.2.2",
+    "react-icons": "^3.4.0",
     "react-router-dom": "^4.2.2",
-    "react-spinners": "^0.3.2",
+    "react-spinners": "^0.5.1",
     "react-star-rating-component": "^1.4.1",
     "react-throttle": "^0.3.0"
   },
