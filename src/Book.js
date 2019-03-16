@@ -2,16 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { shelves } from './helper'
 import StarRatingComponent from 'react-star-rating-component'
-import thumb from './icons/book-cover.jpg'
 
 const Book = ({ book, update }) => {
   return (
     <div className="book">
       <div className="book-top">
         <a href={book.previewLink} target="_blank" rel="noopener noreferrer">
-          <img className="book-cover" alt="loading cover..."
-            src={book.imageLinks ? book.imageLinks.thumbnail : thumb}
-          />
+          <div className="book-cover" style={{ width: 128, height: 193, 
+            backgroundImage: `url("https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1")` }}>
+          </div>
         </a>
         <div className="book-shelf-changer">
           <select
