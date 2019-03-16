@@ -8,14 +8,9 @@ const Book = React.memo(function Book({ book, update }) {
     <div className="book">
       <div className="book-top">
         <a href={book.previewLink} target="_blank" rel="noopener noreferrer">
-<<<<<<< HEAD
           <div className="book-cover" style={{ width: 128, height: 193, 
             backgroundImage: `url("https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1")` }}>
           </div>
-=======
-          <img className="book-cover" alt="loading cover..."
-            src={book.imageLinks ? book.imageLinks.thumbnail : thumb} />
->>>>>>> cd54f5b6f42500802b3c65f46f9857b93e73dee1
         </a>
         <div className="book-shelf-changer">
           <select value={book.shelf || 'none'}
