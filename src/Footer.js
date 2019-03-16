@@ -11,8 +11,8 @@ const Footer = () => (
     <a href="https://github.com/albertoivo" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
     <a href="https://www.linkedin.com/in/alberto-ivo-vieira" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
     <p>
-      Powered by <a href="https://albertoivo.github.io" target="_blank" rel="noopener noreferrer">
-        AlbertoIvo.github.io</a>
+      Powered by
+      <a href="https://albertoivo.github.io" target="_blank" rel="noopener noreferrer">AlbertoIvo.github.io</a>
     </p>
   </footer>
 )
