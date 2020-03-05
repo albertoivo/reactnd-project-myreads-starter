@@ -17,10 +17,10 @@ class SearchBooks extends Component {
     this.setState({query: '', searchedBooks: [], isLoading: false})
   }
 
-  search = query => {
+  search = async query => {
     this.setState({query, isLoading: true})
     if (query) {
-      BooksAPI.search(query).then(searchedBooks => {
+      let searchedBooks = await BooksAPI.search(query)
         if (!searchedBooks.error) {
           searchedBooks.map(book => {
             const bookOnShelf = this.props.books.find(b => b.id === book.id)
@@ -31,8 +31,7 @@ class SearchBooks extends Component {
           })
         }
         this.setState({searchedBooks, isLoading: false})
-      })
-    } else {
+      } else {
       this.clearQuery()
     }
   }
