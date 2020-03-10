@@ -1,43 +1,43 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import Shelf from './Shelf'
-import * as BooksAPI from './BooksAPI'
-import { Debounce } from 'react-throttle'
-import { SyncLoader } from 'react-spinners'
+import React, { Component } from "react"
+import { Link } from "react-router-dom"
+import PropTypes from "prop-types"
+import Shelf from "./Shelf"
+import * as BooksAPI from "./BooksAPI"
+import { Debounce } from "react-throttle"
+import { SyncLoader } from "react-spinners"
 
 class SearchBooks extends Component {
   state = {
-    query: '',
+    query: "",
     searchedBooks: [],
     isLoading: false
   }
 
   clearQuery() {
-    this.setState({query: '', searchedBooks: [], isLoading: false})
+    this.setState({ query: "", searchedBooks: [], isLoading: false })
   }
 
   search = async query => {
-    this.setState({query, isLoading: true})
+    this.setState({ query, isLoading: true })
     if (query) {
       let searchedBooks = await BooksAPI.search(query)
-        if (!searchedBooks.error) {
-          searchedBooks.map(book => {
-            const bookOnShelf = this.props.books.find(b => b.id === book.id)
-            if (bookOnShelf) {
-              book.shelf = bookOnShelf.shelf
-            }
-            return book
-          })
-        }
-        this.setState({searchedBooks, isLoading: false})
-      } else {
+      if (!searchedBooks.error) {
+        searchedBooks.map(book => {
+          const bookOnShelf = this.props.books.find(b => b.id === book.id)
+          if (bookOnShelf) {
+            book.shelf = bookOnShelf.shelf
+          }
+          return book
+        })
+      }
+      this.setState({ searchedBooks, isLoading: false })
+    } else {
       this.clearQuery()
     }
   }
 
   render() {
-    const {searchedBooks, isLoading} = this.state
+    const { searchedBooks, isLoading } = this.state
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -55,20 +55,19 @@ class SearchBooks extends Component {
           </div>
         </div>
         <div className="search-books-results">
-          {isLoading ?
+          {isLoading ? (
             <div className="loading">
-              <SyncLoader loading={true}/>
+              <SyncLoader loading={true} />
             </div>
-            :
-            searchedBooks && searchedBooks instanceof Array ?
-              <Shelf
-                title={`Search Results ( ${searchedBooks.length} )`}
-                update={this.props.update}
-                books={searchedBooks}
-              />
-              :
-              <Shelf title={"Nothing's found. Sorry!"} />
-          }
+          ) : searchedBooks && searchedBooks instanceof Array ? (
+            <Shelf
+              title={`Search Results ( ${searchedBooks.length} )`}
+              update={this.props.update}
+              books={searchedBooks}
+            />
+          ) : (
+            <Shelf title={"Nothing's found. Sorry!"} />
+          )}
         </div>
       </div>
     )
