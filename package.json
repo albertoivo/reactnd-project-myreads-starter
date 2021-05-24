@@ -5,7 +5,11 @@
   "version": "0.10.0",
   "homepage": "https://my-reads-udacity.firebaseapp.com",
   "description": "",
-  "keywords": ["react", "udacity", "nanodegree"],
+  "keywords": [
+    "react",
+    "udacity",
+    "nanodegree"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/albertoivo/my-reads-reactnd"
@@ -13,7 +17,7 @@
   "contributors": [
     {
       "name": "Alberto Ivo Vieira",
-      "url": "albertoivo.github.io",
+      "url": "http://albertoivo.github.io",
       "email": "albertoivo@gmail.com"
     }
   ],
@@ -30,7 +34,7 @@
     "react-throttle": "^0.3.0"
   },
   "devDependencies": {
-    "react-scripts": "2.1.5"
+    "react-scripts": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

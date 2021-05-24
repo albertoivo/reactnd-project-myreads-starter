@@ -8,7 +8,7 @@ const Book = React.memo(function Book({ book, update }) {
     <div className="book">
       <div className="book-top">
         <a href={book.previewLink} target="_blank" rel="noopener noreferrer">
-          <div className="book-cover" style={{ width: 128, height: 193, 
+          <div className="book-cover" style={{ width: 128, height: 193,
             backgroundImage: `url("https://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1")` }}>
           </div>
         </a>
@@ -24,7 +24,10 @@ const Book = React.memo(function Book({ book, update }) {
       <StarRatingComponent name="book-rate" value={book.averageRating} />
       <div className="book-title">{book.title}</div>
       <div className="book-authors">
-        {book.authors && book.authors.join(', ')}
+        {
+          //book.authors && book.authors.join(', ')
+          book.authors?.join(', ')
+        }
       </div>
     </div>
   )
